@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import styles from "./welcome.style";
 import { MyText } from "../../components";
 
-const Welcome = ({}) => (
+const Welcome = ({ navigation }) => (
 	<View style={styles.container}>
 		<Text>Welcome</Text>
 		<MyText>Welcome</MyText>
