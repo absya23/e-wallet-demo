@@ -5,31 +5,35 @@ import { images } from "../../constants";
 import styles from "./onboarding.style";
 import { MyText } from "../../components";
 
+const introImg = [images.boarding1, images.boarding2, images.boarding3];
+
 const introText = [
 	{
 		title: "Cất giữ tiền một cách tiện lợi.",
 		description: "Hoàn tiền lên đến 5% cho mỗi giao dịch và chi tiêu dễ dàng",
 	},
 	{
-		title: "Cất giữ tiền một cách tiện lợi 2.",
-		description: "Hoàn tiền lên đến 5% cho mỗi giao dịch và chi tiêu dễ dàng",
+		title: "Bảo quản tiền và và nhận thưởng.",
+		description:
+			"Hãy tải ứng dụng thanh toán an toàn nhất từ ​​trước đến nay và tận hưởng nó",
 	},
 	{
-		title: "Cất giữ tiền một cách tiện lợi 3.",
+		title: "Tận hưởng các giao dịch nhanh chóng.",
 		description: "Hoàn tiền lên đến 5% cho mỗi giao dịch và chi tiêu dễ dàng",
 	},
 ];
 
 const OnBoarding = ({ navigation }) => {
 	const [count, setCount] = useState(1);
-	const [img, setImg] = useState(images.boarding1);
+	const [img, setImg] = useState(introImg[0]);
 	const [text, setText] = useState(introText[0]);
 	const handleChange = (e) => {
 		if (count < 3) {
 			setText(introText[count]);
+			setImg(introImg[count]);
 			setCount((prev) => prev + 1);
 		} else {
-			navigation.navigate("Welcome");
+			navigation.navigate("Login");
 		}
 	};
 	return (
@@ -46,7 +50,10 @@ const OnBoarding = ({ navigation }) => {
 							{text.description}
 						</MyText>
 						<View>
-							<Button title="next" onPress={(e) => handleChange(e)} />
+							<Button
+								title={count === 3 ? "Get Started" : "Next"}
+								onPress={(e) => handleChange(e)}
+							/>
 						</View>
 					</View>
 				</ImageBackground>

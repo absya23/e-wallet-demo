@@ -5,6 +5,8 @@ import boarding3 from "../../assets/images/boarding3.png";
 import circle from "../../assets/images/circle.png";
 import btn_next from "../../assets/images/btnNext.png";
 import welcome_bg from "../../assets/images/Welcome.png";
+import login_bg from "../../assets/images/login_bg.png";
+import button from "../../assets/images/button.png";
 
 export default {
 	logo,
@@ -14,4 +16,6 @@ export default {
 	circle,
 	btn_next,
 	welcome_bg,
+	login_bg,
+	button,
 };
