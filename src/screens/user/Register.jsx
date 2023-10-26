@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	Image,
 	ImageBackground,
@@ -7,10 +7,12 @@ import {
 	TextInput,
 	View,
 } from "react-native";
-
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Storage } from 'expo-storage'
+import Toast from 'react-native-toast-message';
 import styles from "./user.style";
 import { COLORS, icons, images } from "../../constants";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { users } from "../../api/mockData"
 
 const Register = ({ navigation }) => {
 	// data
@@ -20,9 +22,45 @@ const Register = ({ navigation }) => {
 	const [isPasswordSecure, setIsPasswordSecure] = useState(true);
 	const [isPending, setIsPending] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [userArr, setUserArr] = useState([]);
+
+	useEffect(() => {
+		const getData = async () => {
+			//TODO call API get users
+			setUserArr(users);
+		}
+		getData();
+	}, [])
+
 	// handle
-	const handleSignUp = (phone, password, navigation) => {
-		navigation.navigate("Welcome");
+	const handleSignUp = async (username, phone, password) => {
+		const isExisting = !!userArr.find((item) => item.phoneNumber == phone);
+		if (!isExisting) {
+			const payload = {
+				phoneNumber: phone,
+				pin: password,
+				name: username,
+				balance: 0,
+			}
+			//TODO call API post user
+			payload.userId = 25;
+			await Storage.setItem({
+				key: "user",
+				value: JSON.stringify(payload)
+			  })
+			  Toast.show({
+			    type: 'success',
+				text1: 'Register successfully',
+			});
+			navigation.navigate("Welcome");	
+		}
+		else {
+			Toast.show({
+				type: 'error',
+				text1: 'Already exist',
+			  });
+			setErrorMessage("Already exist")
+		}
 	};
 	return (
 		<ImageBackground source={images.login_bg} style={styles.backgroundImage}>
@@ -86,7 +124,7 @@ const Register = ({ navigation }) => {
 				</View>
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity
-						onPress={() => handleSignUp(phone, password, navigation)}
+						onPress={() => handleSignUp(username, phone, password)}
 						style={{
 							...styles.button,
 							backgroundColor: isPending ? "#65b66f" : COLORS.primary,
