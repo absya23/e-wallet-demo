@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	Image,
 	ImageBackground,
@@ -6,11 +6,14 @@ import {
 	Text,
 	TextInput,
 	View,
+	ActivityIndicator
 } from "react-native";
-
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Storage } from 'expo-storage'
+import Toast from 'react-native-toast-message';
 import styles from "./user.style";
 import { COLORS, icons, images } from "../../constants";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { users } from "../../api/mockData"
 
 const Login = ({ navigation }) => {
 	// data
@@ -19,9 +22,36 @@ const Login = ({ navigation }) => {
 	const [isPasswordSecure, setIsPasswordSecure] = useState(true);
 	const [isPending, setIsPending] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [userArr, setUserArr] = useState([]);
+
+	useEffect(() => {
+		const getData = async () => {
+			//TODO call API get users
+			setUserArr(users);
+		}
+		getData();
+	}, [])
 	// handle
-	const handleSignIn = (phone, password) => {
-		console.log("handle sign in");
+	const handleSignIn = async (phone, password) => {
+		const result = userArr.find((item) => item.phoneNumber == phone && item.pin == password)
+		if (result) {
+			await Storage.setItem({
+				key: "user",
+				value: JSON.stringify(result)
+			  })
+			Toast.show({
+			    type: 'success',
+				text1: 'Login successfully',
+			});
+			navigation.navigate("Welcome");
+		}
+		else {
+			Toast.show({
+				type: 'error',
+				text1: 'Please check your phone and password',
+			  });
+			  setErrorMessage("Wrong phone or password")
+		}	
 	};
 	return (
 		<ImageBackground source={images.login_bg} style={styles.backgroundImage}>
