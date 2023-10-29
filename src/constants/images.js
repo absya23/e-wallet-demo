@@ -7,6 +7,10 @@ import btn_next from "../../assets/images/btnNext.png";
 import welcome_bg from "../../assets/images/Welcome.png";
 import login_bg from "../../assets/images/login_bg.png";
 import button from "../../assets/images/button.png";
+import opacity from "../../assets/images/opacity.png";
+import avatar from "../../assets/images/avatar.png";
+import background_1 from "../../assets/images/background_1.png";
+import column from "../../assets/images/column.png";
 
 export default {
 	logo,
@@ -18,4 +22,8 @@ export default {
 	welcome_bg,
 	login_bg,
 	button,
+	opacity,
+	avatar,
+	background_1,
+	column,
 };

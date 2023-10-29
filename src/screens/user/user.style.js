@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
 	input: {
 		width: "100%",
 		paddingVertical: 10,
+		outlineStyle: "none",
 	},
 	buttonContainer: {
 		marginTop: 10,
