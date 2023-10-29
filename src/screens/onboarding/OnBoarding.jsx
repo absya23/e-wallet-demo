@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button, Image, ImageBackground, Text, View } from "react-native";
+import { Image, ImageBackground, Text, View } from "react-native";
 
-import { images } from "../../constants";
+import { COLORS, images } from "../../constants";
 import styles from "./onboarding.style";
 import { MyText } from "../../components";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const introImg = [images.boarding1, images.boarding2, images.boarding3];
 
@@ -49,12 +50,14 @@ const OnBoarding = ({ navigation }) => {
 						<MyText weight={400} style={styles.description}>
 							{text.description}
 						</MyText>
-						<View>
-							<Button
-								title={count === 3 ? "Get Started" : "Next"}
-								onPress={(e) => handleChange(e)}
-							/>
-						</View>
+						<TouchableOpacity
+							onPress={(e) => handleChange(e)}
+							style={styles.button}
+						>
+							<Text style={{ color: COLORS.white }}>
+								{count === 3 ? "Get Started" : "Next"}
+							</Text>
+						</TouchableOpacity>
 					</View>
 				</ImageBackground>
 			</View>

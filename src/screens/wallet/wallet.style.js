@@ -1,0 +1,131 @@
+import { StyleSheet } from "react-native";
+
+import { COLORS, FONT, SIZES } from "../../../src/constants";
+import { windowHeight, windowWidth } from "../../utils/dimensions";
+
+const styles = StyleSheet.create({
+	container: {
+		width: windowWidth,
+		height: windowHeight,
+		backgroundColor: COLORS.white,
+		alignItems: "center",
+	},
+	topBg: {
+		width: windowWidth,
+		height: windowHeight / 3,
+		borderEndStartRadius: 80,
+		borderEndEndRadius: 80,
+		zIndex: -1,
+	},
+	topNav: {
+		width: windowWidth,
+		height: "100%",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "flex-start",
+		padding: 20,
+	},
+	text: {
+		fontFamily: FONT.regular,
+		fontSize: SIZES.large,
+		color: COLORS.white,
+		paddingVertical: 10,
+	},
+	avtGroup: {
+		width: 44,
+		height: 44,
+		alignItems: "flex-end",
+		position: "relative",
+	},
+	avt: {
+		resizeMode: "cover",
+		borderRadius: 8,
+		width: 40,
+		height: 40,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3.84,
+
+		elevation: 5,
+	},
+	dot: {
+		borderRadius: 100,
+		width: 10,
+		height: 10,
+		backgroundColor: COLORS.green,
+		position: "absolute",
+		bottom: 2,
+		right: -5,
+		zIndex: 1,
+		borderWidth: 1,
+		borderColor: COLORS.white,
+	},
+	box: {
+		width: (windowWidth * 4) / 5,
+		height: windowHeight / 3,
+		position: "relative",
+	},
+	boxContent: {
+		width: "100%",
+		height: "100%",
+		backgroundColor: COLORS.white,
+		shadowColor: COLORS.gray,
+		shadowOffset: {
+			width: 0,
+			height: 1,
+		},
+		shadowOpacity: 0.18,
+		shadowRadius: 4.65,
+		elevation: 100,
+		borderRadius: 20,
+		padding: 20,
+		position: "absolute",
+		top: "-20%",
+		left: 0,
+		zIndex: 100,
+		flex: 1,
+		justifyContent: "space-between",
+		alignItems: "center",
+	},
+	row: {
+		width: "100%",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+		marginBottom: 20,
+	},
+	image: {
+		flex: 1,
+		position: "relative",
+		resizeMode: "contain",
+		width: "80%",
+		height: "50%",
+	},
+	boxBottom: {
+		width: (windowWidth * 4) / 5,
+		height: windowHeight / 9,
+		marginVertical: 20,
+		backgroundColor: COLORS.primary,
+		shadowColor: COLORS.secondary,
+		shadowOffset: {
+			width: 0,
+			height: 12,
+		},
+		shadowOpacity: 0.18,
+		shadowRadius: 16,
+		elevation: 100,
+		borderRadius: 50,
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		overflow: "hidden",
+	},
+	btnImg: { borderRadius: "100%", width: 200, height: 200 },
+});
+
+export default styles;
