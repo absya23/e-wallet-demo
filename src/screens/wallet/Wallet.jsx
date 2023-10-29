@@ -9,7 +9,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const Wallet = ({ navigation }) => {
 	let balance = "1.500.000";
 	const handleNavigate = () => {
-		navigation.navigate("Trang chủ");
+		navigation.navigate("Lịch sử giao dịch");
 	};
 	return (
 		<KeyboardAvoidingView

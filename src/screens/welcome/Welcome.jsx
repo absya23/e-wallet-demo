@@ -2,7 +2,7 @@ import React from "react";
 import { StatusBar, Text, View } from "react-native";
 
 import styles from "./welcome.style";
-import { BannerCarousel, MyText } from "../../components";
+import { BannerCarousel, MyText, MyVoiceBot } from "../../components";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 const Welcome = ({ navigation }) => (
@@ -11,97 +11,100 @@ const Welcome = ({ navigation }) => (
 	// 	<MyText>Welcome</MyText>
 	// 	<MyText weight={800}>Cất trữ tiền một cách tiện lợi</MyText>
 	// </View>
-	<View
-		style={{
-			flex: 1,
-			width: "100%",
-			backgroundColor: "#fff",
-			paddingTop: 10,
-		}}
-	>
-		<StatusBar
-			backgroundColor="#fff"
-			barStyle="dark-content"
-			translucent={false}
-		/>
-		<ScrollView
-			showsVerticalScrollIndicator={false}
-			persistentScrollbar={true}
+	<View>
+		<View
 			style={{
+				flex: 1,
+				width: "100%",
 				backgroundColor: "#fff",
-				position: "relative",
+				paddingTop: 10,
 			}}
-			stickyHeaderIndices={[0]}
 		>
-			<View
+			<StatusBar
+				backgroundColor="#fff"
+				barStyle="dark-content"
+				translucent={false}
+			/>
+			<ScrollView
+				showsVerticalScrollIndicator={false}
+				persistentScrollbar={true}
 				style={{
-					marginTop: 30,
-					width: "100%",
+					backgroundColor: "#fff",
+					position: "relative",
 				}}
+				stickyHeaderIndices={[0]}
 			>
-				<MyText></MyText>
-				<BannerCarousel></BannerCarousel>
 				<View
 					style={{
-						marginTop: 10,
+						marginTop: 30,
 						width: "100%",
-						paddingLeft: 25,
-						justifyContent: "center",
-						alignItems: "center",
 					}}
 				>
-					<FlatList
+					<MyText></MyText>
+					<BannerCarousel></BannerCarousel>
+					<View
 						style={{
-							height: 220,
-						}}
-						contentContainerStyle={{
-							flexGrow: 1,
+							marginTop: 10,
+							width: "100%",
+							paddingLeft: 25,
 							justifyContent: "center",
 							alignItems: "center",
-							padding: 2,
 						}}
-						showsHorizontalScrollIndicator={false}
-					/>
+					>
+						<FlatList
+							style={{
+								height: 220,
+							}}
+							contentContainerStyle={{
+								flexGrow: 1,
+								justifyContent: "center",
+								alignItems: "center",
+								padding: 2,
+							}}
+							showsHorizontalScrollIndicator={false}
+						/>
+					</View>
 				</View>
-			</View>
 
-			<View
-				style={{
-					marginTop: 20,
-					width: "100%",
-				}}
-			>
-				<MyText>Dịch vụ nổi bật</MyText>
 				<View
 					style={{
-						marginTop: 10,
+						marginTop: 20,
 						width: "100%",
-						paddingLeft: 25,
-						justifyContent: "center",
-						alignItems: "center",
 					}}
 				>
-					<FlatList
+					<MyText>Dịch vụ nổi bật</MyText>
+					<View
 						style={{
-							height: 220,
-						}}
-						contentContainerStyle={{
-							flexGrow: 1,
+							marginTop: 10,
+							width: "100%",
+							paddingLeft: 25,
 							justifyContent: "center",
 							alignItems: "center",
-							padding: 2,
 						}}
-						showsHorizontalScrollIndicator={false}
-						// data={ranks}
-						// renderItem={renderItem}
-						// keyExtractor={(item) => item.id}
-						horizontal={true}
-					/>
+					>
+						<FlatList
+							style={{
+								height: 220,
+							}}
+							contentContainerStyle={{
+								flexGrow: 1,
+								justifyContent: "center",
+								alignItems: "center",
+								padding: 2,
+							}}
+							showsHorizontalScrollIndicator={false}
+							// data={ranks}
+							// renderItem={renderItem}
+							// keyExtractor={(item) => item.id}
+							horizontal={true}
+						/>
+					</View>
 				</View>
-			</View>
 
-			<View style={{ marginBottom: 80 }} />
-		</ScrollView>
+				<View style={{ marginBottom: 80 }} />
+			</ScrollView>
+		</View>
+		<MyVoiceBot></MyVoiceBot>
 	</View>
 );
 

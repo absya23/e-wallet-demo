@@ -8,6 +8,7 @@ import Wallet from "./wallet/Wallet";
 import TransferHome from "./transactions/TransferHome";
 import Transfer from "./transactions/Transfer";
 import Confirmation from "./transactions/Confirmation";
+import TransactionHistory from "./user/TransactionHisTory";
 
 export {
 	Welcome,
@@ -20,4 +21,5 @@ export {
 	TransferHome,
 	Transfer,
 	Confirmation,
+	TransactionHistory,
 };

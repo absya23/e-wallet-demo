@@ -5,6 +5,7 @@ import MyButton from "./common/MyButton";
 import MySearch from "./common/MySearch";
 import { MyButton2 } from "./common/MyButton";
 import MyInputDismissKeyboard from "./common/MyInputDismissKeyboard";
+import MyVoiceBot from "./common/MyVoiceBot";
 
 export {
 	ScreenHeaderBtn,
@@ -14,4 +15,5 @@ export {
 	MySearch,
 	MyButton2,
 	MyInputDismissKeyboard,
+	MyVoiceBot,
 };

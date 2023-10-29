@@ -1,6 +1,13 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Setting, Transfer, TransferHome, Wallet, Welcome } from "../screens";
+import {
+	Setting,
+	TransactionHistory,
+	Transfer,
+	TransferHome,
+	Wallet,
+	Welcome,
+} from "../screens";
 import { View } from "react-native";
 import { COLORS } from "../constants";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -68,16 +75,12 @@ const BottomNavigation = ({ navigation }) => (
 			}}
 		/>
 		<Tab.Screen
-			name="Thông báo"
-			component={Setting}
+			name="Lịch sử giao dịch"
+			component={TransactionHistory}
 			options={{
-				tabBarLabel: "Thông báo",
+				tabBarLabel: "Lịch sử",
 				tabBarIcon: ({ color }) => (
-					<MaterialCommunityIcons
-						name="bell-ring-outline"
-						color={color}
-						size={26}
-					/>
+					<MaterialCommunityIcons name="clock" color={color} size={26} />
 				),
 			}}
 		/>
